@@ -2,7 +2,7 @@ import time
 import os
 import requests
 
-API_URL = "https://kropa.pl/api/receive/"  # Twój endpoint w Django
+API_URL = "https://kr0pa.pl/api/receive/"
 
 def get_cpu_temperature():
     try:
