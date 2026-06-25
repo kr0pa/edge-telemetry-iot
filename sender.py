@@ -21,22 +21,22 @@ def main():
     print("Uruchomiono Agenta Telemetrii (Tylko Temperatura CPU)...")
     while True:
         temp = get_cpu_temperature()
-		cpu_load = psutil.cpu_percent(interval=1)
-		ram_usage = psutil.virtual_memory().percent
+        cpu_load = psutil.cpu_percent(interval=1)
+        ram_usage = psutil.virtual_memory().percent
 
         payload = {
             "device_id": "raspberry-pi-edge",
             "cpu_temp": temp,
-			"cpu_load": cpu_load,
-			"ram_usage": ram_usage
+            "cpu_load": cpu_load,
+            "ram_usage": ram_usage
         }
-        
+
         try:
             response = requests.post(API_URL, json=payload, timeout=5)
             print(f"Wysłano dane: Temperatura CPU: {temp}°C | Obciążenie CPU: {cpu_load}% | Zużycie RAM: {ram_usage}% | Status API: {response.status_code}")
         except requests.exceptions.RequestException as e:
             print(f"Problem z połączeniem z API: {e}")
-            
+
         time.sleep(10)
 
 if __name__ == "__main__":
