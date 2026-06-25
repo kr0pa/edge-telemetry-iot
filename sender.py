@@ -3,7 +3,7 @@ import os
 import requests
 import psutil
 
-psutil.PROCFS_PATH = 'hostfs/proc'
+psutil.PROCFS_PATH = '/hostfs/proc'
 API_URL = "https://kr0pa.pl/api/receive/"
 
 def get_cpu_temperature():
