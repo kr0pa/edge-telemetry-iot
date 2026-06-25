@@ -34,6 +34,8 @@ docker run -d \
   --name iot-agent \
   --restart unless-stopped \
   -v /:/hostfs:ro \
+  -v /proc:/hostfs/proc:ro \
+  -v /sys:/hostfs/sys:ro \
   kr0pa/edge-telemetry:latest
 ```
 
